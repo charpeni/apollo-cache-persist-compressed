@@ -1,0 +1,80 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: cimg/node:20.14
+    working_directory: ~/apollo-cache-persist-compressed
+
+commands:
+  save-cache:
+    steps:
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+  restore-cache:
+    steps:
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+  attach-workspace:
+    steps:
+      - attach_workspace:
+          at: ~/apollo-cache-persist-compressed
+
+jobs:
+  checkout:
+    executor: default
+    steps:
+      - checkout
+      - restore-cache
+      - run:
+          name: Yarn version
+          command: yarn --version
+      - run:
+          name: Yarn Install
+          command: |
+            yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save-cache
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  lint:
+    executor: default
+    steps:
+      - attach-workspace
+      - run:
+          name: Lint
+          command: yarn lint
+  type-check:
+    executor: default
+    steps:
+      - attach-workspace
+      - run:
+          name: Type Check
+          command: yarn type-check
+  test:
+    executor: default
+    steps:
+      - attach-workspace
+      - run:
+          name: Test
+          command: yarn test
+
+workflows:
+  tests:
+    jobs:
+      - checkout
+      - lint:
+          requires:
+            - checkout
+      - type-check:
+          requires:
+            - checkout
+      - test:
+          requires:
+            - checkout
