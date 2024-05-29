@@ -1,0 +1,9 @@
+{
+  "extends": "@total-typescript/tsconfig/tsc/dom/library",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/__tests__/*.ts", "node_modules"]
+}

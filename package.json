@@ -1,0 +1,42 @@
+{
+  "name": "apollo-cache-persist-compressed",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "type": "module",
+  "sideEffects": "false",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charpeni/apollo-cache-persist-compressed.git"
+  },
+  "scripts": {
+    "build": "rimraf lib/ && tsc",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "test": "jest"
+  },
+  "author": "Nicolas Charpentier <nicolas.charpentier079@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "peerDependencies": {
+    "apollo3-cache-persist": "^0.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.12",
+    "apollo3-cache-persist": "^0.15.0",
+    "eslint": "^9.3.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0",
+    "prettier": "3.2.5",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.11.0"
+  }
+}
