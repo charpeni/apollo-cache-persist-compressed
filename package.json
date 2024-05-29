@@ -1,6 +1,6 @@
 {
   "name": "apollo3-cache-persist-compressed",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "🗜️ Compressed cache persistence for Apollo Client",
   "main": "lib/index.js",
   "type": "module",
