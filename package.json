@@ -10,6 +10,7 @@
     "url": "https://github.com/charpeni/apollo-cache-persist-compressed.git"
   },
   "scripts": {
+    "prepare": "yarn build",
     "build": "rimraf lib/ && tsc",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
