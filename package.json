@@ -1,5 +1,5 @@
 {
-  "name": "apollo-cache-persist-compressed",
+  "name": "apollo3-cache-persist-compressed",
   "version": "0.0.0",
   "description": "🗜️ Compressed cache persistence for Apollo Client",
   "main": "lib/index.js",
