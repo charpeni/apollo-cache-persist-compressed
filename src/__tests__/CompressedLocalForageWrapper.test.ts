@@ -1,7 +1,7 @@
 import { compressSync, strToU8 } from 'fflate';
 
-import { CompressedLocalForageWrapper } from '../CompressedLocalForageWrapper.js';
-import { LocalForageInterface } from '../LocalForageWrapper.js';
+import { CompressedLocalForageWrapper } from '../CompressedLocalForageWrapper';
+import type { LocalForageInterface } from '../LocalForageWrapper';
 
 describe('CompressedLocalForageWrapper', () => {
   let storageMock: LocalForageInterface<Uint8Array>;
