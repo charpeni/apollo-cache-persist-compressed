@@ -63,4 +63,4 @@ const client = new ApolloClient({
 
 ## License
 
-merge-drivers is [MIT licensed](LICENSE).
+apollo-cache-persist-compressed is [MIT licensed](LICENSE).
